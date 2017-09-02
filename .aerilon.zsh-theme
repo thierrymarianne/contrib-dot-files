@@ -13,7 +13,7 @@ local identity=" ${username} ${at} ${host} "
 local git_color="$bold_color%(?:$FG[070]:$FG[160])"
 local git_branch_color="${mood_color}"
 local current_directory="${bold_color}%(?:%{$FG[070]%}:%{$FG[214]%}) in \"%c\" directory $reset_color%} "
-local last_commit_hash='[$(git show HEAD --format=%H -s | cut -c1-12 )]${reset_color}'
+local last_commit_hash='$(test -d .git && echo "["$( git show HEAD --format=%H -s | cut -c1-12 )"]" || true)${reset_color}'
 
 # use spectrum_ls to list all available colors to oh-my-zsh theme
 PROMPT="${now}"'${ret_status}${identity}${current_directory}$(git_prompt_info)%(?:%{$FG[071]%}:%{$FG[214]%}) '"${last_commit_hash}"$'\n'
