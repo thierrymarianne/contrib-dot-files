@@ -9,10 +9,10 @@ local ret_status="${mood_color}%(?:%{$last_command_succeeded%}:%{$last_command_f
 local username=" ${reset_color}${bold_color}%(?:$FG[071]:$FG[202])$USER"
 local at="$bold_color%(?:%{$FG[070]%}:%{$FG[214]%})@${reset_color}"
 local host="${bold_color}%(?:$FG[071]:$FG[202])%M${reset_color}"
-local identity=" ${username} ${at} ${host} "
+local identity="${username} ${at} ${host}"
 local git_color="$bold_color%(?:$FG[070]:$FG[160])"
 local git_branch_color="${mood_color}"
-local current_directory="${bold_color}%(?:%{$FG[070]%}:%{$FG[214]%}) in \"%c\" directory $reset_color%} "
+local current_directory="${bold_color}%(?:%{$FG[070]%}:%{$FG[214]%}) in \"%c\" directory$reset_color%} "
 local last_commit_hash='$(test -d .git && echo "["$( git show HEAD --format=%H -s | cut -c1-12 )"]" || true)${reset_color}'
 
 # use spectrum_ls to list all available colors to oh-my-zsh theme
